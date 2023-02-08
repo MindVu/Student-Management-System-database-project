@@ -38,10 +38,10 @@ if (isset($_POST['signup-submit'])) {
           header("Location: ../signup.php?error=sqlerror");
           exit();
         } else {
-          $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
+          $hashedPwd = password_hash($password, PASSWORD_DEFAULT, ['cost' => 15]);
           mysqli_stmt_bind_param($stmt, "sss", $id, $name, $hashedPwd);
           mysqli_stmt_execute($stmt);
-          header("Location: ../signup.php?singup=success");
+          header("Location: ../index.php?singup=success");
           exit();
         }
       }

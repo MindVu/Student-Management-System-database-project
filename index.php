@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -6,5 +9,6 @@
 
 <body>
 <a href="signup.php">Signup</a>
+<a href="login.php">Login</a>
 </body>
   
