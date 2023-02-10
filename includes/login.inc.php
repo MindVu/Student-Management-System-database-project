@@ -5,7 +5,7 @@ if (isset($_POST['login-submit'])) {
   $password = $_POST['pwd'];
 
   if (empty($id) || empty($password)) {
-    header("Location: ../login.php?error=emptyfield");
+    header("Location: ../index.php?error=emptyfield");
     exit();
   }
 
@@ -13,7 +13,7 @@ if (isset($_POST['login-submit'])) {
   $stmt = mysqli_stmt_init($conn);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("Location: ../login.php?error=sqlerror");
+    header("Location: ../index.php?error=sqlerror");
     exit();
   }
 
@@ -36,7 +36,7 @@ if (isset($_POST['login-submit'])) {
       exit();
     }
   } else {
-    header("location: ../login.php?error=nouser");
+    header("location: ../index.php?error=nouser");
     exit();
   }
   mysqli_stmt_close($stmt);

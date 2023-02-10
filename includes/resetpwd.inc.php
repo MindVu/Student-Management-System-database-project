@@ -21,7 +21,7 @@ if (isset($_POST['resetpwd-submit'])) {
   mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
     mysqli_close($conn);
-		header("location: ../login.php?password-reset-successfully");
+		header("location: ../index.php?password-reset-successfully");
     exit();
 }
 else {
