@@ -19,7 +19,7 @@ if (isset($_POST['changepwd-submit'])) {
   }
 
   //check pass cũ đúng ko	
-  $sql = "SELECT * FROM Teacher WHERE id=?";
+  $sql = "SELECT id, name, pwd FROM Teacher WHERE id=?";
   $stmt = mysqli_stmt_init($conn);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -50,7 +50,7 @@ if (isset($_POST['changepwd-submit'])) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    header("location: ../changepwd.php?password-changed");
+    header("location: ../mainpage.php?password-changed");
     exit();
   }
 } else {

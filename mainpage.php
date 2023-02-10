@@ -17,5 +17,6 @@ if (isset($_SESSION['authorized']) && $_SESSION['authorized'] === TRUE) {
 }
 ?>
 <a href="changepwd.php">Change Password</a>
+<a href="includes/logout.php">Log Out</a>
 </body>
 </html>

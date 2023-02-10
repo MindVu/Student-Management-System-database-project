@@ -9,7 +9,7 @@ if (isset($_POST['login-submit'])) {
     exit();
   }
 
-  $sql = "SELECT * FROM Teacher WHERE id=?";
+  $sql = "SELECT id, name, pwd FROM Teacher WHERE id=?";
   $stmt = mysqli_stmt_init($conn);
 
   if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -40,7 +40,10 @@ if (isset($_POST['login-submit'])) {
     exit();
   }
   mysqli_stmt_close($stmt);
+  mysqli_free_result($result);
+  //mysqli_close($conn);
 }
+?>
 		
 	
       

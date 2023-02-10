@@ -9,5 +9,6 @@
 		<input type="text" name="id" placeholder="ID">
 		<input type="password" name="pwd" placeholder="Password">
 		<button type="submit" name="login-submit">Submit</button>
+		<a href="resetpwd.php">Forgot password?</a>
 	</form>
 </body>

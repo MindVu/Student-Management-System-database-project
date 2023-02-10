@@ -10,10 +10,7 @@ if (isset($_POST['signup-submit'])) {
   if (empty($name) || empty($id) || empty($password) || empty($passwordRepeat)) {
     header("Location: ../signup.php?error=emptyfield&uid=" . $name . "&id=" . $id);
     exit();
-  } elseif (!preg_match("/^[a-zA-Z]*$/", $name)) {
-    header("Location: ../signup.php?error=invalidname&id=" . $id);
-    exit();
-  } elseif ($password !== $passwordRepeat) {
+  }  elseif ($password !== $passwordRepeat) {
     header("Location: ../signup.php?error=passwordcheck&name=" . $name . "&id=" . $id);
     exit();
   } else {
