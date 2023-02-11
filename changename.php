@@ -34,8 +34,8 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 					<div class="card" style="border-radius: 15px;">
 						<div class="card-body p-5">
 							<h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;font-weight: 900;color:black;">
-								Đổi mật khẩu</h2>
-								<div class="text-center" style="color:red;font-weight: bold;">
+								Đổi tên</h2>
+                <div class="text-center" style="color:red;font-weight: bold;">
                 <?php
                 if (isset($_SESSION['error'])) {
                   echo $_SESSION['error'];
@@ -51,24 +51,17 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
                 }
                 ?>
                 </div>
-							<form action="includes/changepwd.inc.php" method="post">
+							<form action="includes/changename.inc.php" method="post">
 								<div class="form-outline mb-4">
-									<input type="password" name="OldPwd" id="form3Example4cg" class="form-control form-control-lg" />
-									<label class="form-label" for="form3Example4cg">Mật khẩu cũ</label>
+									<input type="text" name="NewName" id="form3Example4cg" class="form-control form-control-lg" />
+									<label class="form-label" for="form3Example4cg">Tên mới</label>
 								</div>
-								<div class="form-outline mb-4">
-									<input type="password" name="NewPwd" id="form3Example4cg" class="form-control form-control-lg" />
-									<label class="form-label" for="form3Example4cg">Mặt khẩu mới</label>
-								</div>
-
-								<div class="form-outline mb-4">
-									<input type="password" name="RptNewPwd" id="form3Example4cdg" class="form-control form-control-lg" />
-									<label class="form-label" for="form3Example4cdg">Nhập lại mật khẩu mới</label>
-								</div>
+								
 								<div class="d-flex justify-content-center">
-									<button type="submit" class="btn btn-dark btn-lg btn-block" name="changepwd-submit">Xác nhận</button>
+									<button type="submit" class="btn btn-dark btn-lg btn-block" name="changename-submit">Xác nhận</button>
 								</div>
-
+                <p class="text-center text-muted mt-5 mb-0">Trở về <a href="mainpage.php"
+                      class="fw-bold text-body"><u>Trang chủ</u></a></p>
 							</form>
 						</div>
 					</div>

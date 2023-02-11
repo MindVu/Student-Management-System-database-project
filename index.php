@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,8 +23,8 @@
 
 <body>
   <!-- Start your project here-->
-  <section class="vh-100" style="background: rgb(128,0,0);
-    background: linear-gradient(0deg, rgba(128,0,0,1) 0%, rgba(182,13,13,1) 100%);">
+  <section class="vh-100" style="background: rgb(29,38,113);
+background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
@@ -36,26 +39,41 @@
 
                   <form action="includes/login.inc.php" method="post">
 
-                    <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;font-weight: 900;">Sign into your account
+                    <h2 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;font-weight: 900;">Đăng nhập
                     </h2>
-
+                    <div class="" style="color:red;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['error'])) {
+                  echo $_SESSION['error'];
+                  unset($_SESSION['error']);
+                }
+                ?>
+                </div>
+                <div class="" style="color:green;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['success'])) {
+                  echo $_SESSION['success'];
+                  unset($_SESSION['success']);
+                }
+                ?>
+                </div>
                     <div class="form-outline mb-4">
                       <input type="text" name="id" id="form2Example17" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example17">Your ID</label>
+                      <label class="form-label" for="form2Example17">Mã giáo viên</label>
                     </div>
 
                     <div class="form-outline mb-4">
                       <input type="password" name="pwd" id="form2Example27" class="form-control form-control-lg" />
-                      <label class="form-label" for="form2Example27">Password</label>
+                      <label class="form-label" for="form2Example27">Mật khẩu</label>
                     </div>
 
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="submit" name="login-submit">Login</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit" name="login-submit">Đăng nhập</button>
                     </div>
 
-                    <a class="small text-muted" href="resetpwd.php">Forgot password?</a>
-                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <u><a href="signup.php"
-                        class="fw-bold text-body" style="color: #393f81;">Register here</a></u></p>
+                    <a class="small text-muted" href="resetpwd.php">Quên mật khẩu?</a>
+                    <p class="mb-5 pb-lg-2" style="color: #393f81;">Chưa có tài khoản? <u><a href="signup.php"
+                        class="fw-bold text-body" style="color: #393f81;">Đăng ký</a></u></p>
 
                   </form>
 

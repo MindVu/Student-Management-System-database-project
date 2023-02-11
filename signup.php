@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,14 +18,10 @@
   <link rel="stylesheet" href="css/mdb.min.css" />
   <style>
     .gradient-custom-3 {
-      background: rgb(128, 0, 0);
-      background: linear-gradient(0deg, rgba(128, 0, 0, 1) 0%, rgba(182, 13, 13, 1) 100%);
+      background: rgb(29,38,113);
+background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);
     }
 
-    .gradient-custom-4 {
-      background: rgb(128, 0, 0);
-      background: linear-gradient(0deg, rgba(128, 0, 0, 1) 0%, rgba(182, 13, 13, 1) 100%);
-    }
   </style>
 </head>
 
@@ -36,36 +35,43 @@
             <div class="card" style="border-radius: 15px;">
               <div class="card-body p-5">
                 <h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;font-weight: 900;color:black;">
-                  Create an account</h2>
-
+                  Tạo tài khoản</h2>
+                <div class="text-center" style="color:red;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['error'])) {
+                  echo $_SESSION['error'];
+                  unset($_SESSION['error']);
+                }
+                ?>
+                </div>
                 <form action="includes/signup.inc.php" method="post">
 
                   <div class="form-outline mb-4">
                     <input type="text" name="name" id="form3Example1cg" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Example1cg">Your Name</label>
+                    <label class="form-label" for="form3Example1cg">Họ và Tên</label>
                   </div>
 
                   <div class="form-outline mb-4">
                     <input type="text" name="id" id="form3Example3cg" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Example3cg">Your ID</label>
+                    <label class="form-label" for="form3Example3cg">Mã giáo viên</label>
                   </div>
 
                   <div class="form-outline mb-4">
                     <input type="password" name="pwd" id="form3Example4cg" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Example4cg">Password</label>
+                    <label class="form-label" for="form3Example4cg">Mật khẩu</label>
                   </div>
 
                   <div class="form-outline mb-4">
                     <input type="password" name="pwdrp" id="form3Example4cdg" class="form-control form-control-lg" />
-                    <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                    <label class="form-label" for="form3Example4cdg">Nhập lại mật khẩu</label>
                   </div>
 
                   <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-dark btn-lg btn-block" name="signup-submit">Register</button>
+                    <button type="submit" class="btn btn-dark btn-lg btn-block" name="signup-submit">Đăng ký</button>
                   </div>
 
-                  <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="index.php"
-                      class="fw-bold text-body"><u>Login here</u></a></p>
+                  <p class="text-center text-muted mt-5 mb-0">Đã có tài khoản? <a href="index.php"
+                      class="fw-bold text-body"><u>Đăng nhập</u></a></p>
 
                 </form>
 
