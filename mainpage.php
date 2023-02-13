@@ -65,21 +65,43 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
             Home
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#!">
+        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
+          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false">
             <div>
             <i class="fas fa-chalkboard-teacher"></i>
             </div>
             Class
           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="#">Danh sách lớp</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Thêm lớp mới</a>
+            </li>
+          </ul>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#!">
+        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
+          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false">
             <div>
             <i class="fas fa-user-graduate"></i>
             </div>
             Students
           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="#">Thông tin sinh viên</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Thêm sinh viên mới</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item text-center mx-2 mx-lg-1">
           <a class="nav-link left-link" aria-current="page" href="#!">

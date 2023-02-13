@@ -68,7 +68,8 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 								<div class="d-flex justify-content-center">
 									<button type="submit" class="btn btn-dark btn-lg btn-block" name="changepwd-submit">Xác nhận</button>
 								</div>
-
+								<p class="text-center text-muted mt-5 mb-0">Trở về <a href="mainpage.php"
+                      class="fw-bold text-body"><u>Trang chủ</u></a></p>
 							</form>
 						</div>
 					</div>
