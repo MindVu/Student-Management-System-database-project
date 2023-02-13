@@ -77,10 +77,10 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li>
-              <a class="dropdown-item" href="#">Danh sách lớp</a>
+              <a class="dropdown-item" href="classlist.php">Danh sách lớp</a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Thêm lớp mới</a>
+              <a class="dropdown-item" href="addclass.php">Thêm lớp mới</a>
             </li>
           </ul>
         </li>
