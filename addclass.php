@@ -1,16 +1,5 @@
 <?php
 session_start();
-require 'includes/db_connection.php';
-if(isset($_POST['class_search']))
-{
-  $valuetosearch=$_POST['valuetosearch'];
-  $sql="SELECT * FROM class WHERE id_teacher = " . $_SESSION['userid'] . " AND CONCAT(id, name) LIKE '%".$valuetosearch."%'";
-  $result = mysqli_query($conn, $sql);
-}else
-{
-  $sql="SELECT * FROM class WHERE id_teacher = " . $_SESSION['userid'] ."";
-  $result = mysqli_query($conn, $sql);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +29,10 @@ if(isset($_POST['class_search']))
       color:#ff78a4;
       opacity: 0.5;
     }
-    .td {
-  text-align: center;
-}
+		.gradient-custom-3 {
+      background: rgb(29,38,113);
+background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);
+    }
   </style>
 </head>
 
@@ -172,51 +162,68 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
-<form action="classlist.php" method="post">
-  <input type="text" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học">
-  <button type="submit" name="class_search">Tìm kiếm</button>
-</form>
-<br>
-<table class="table table-hover td">
-  <thead>
-    <tr style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,0.3491771708683473) 0%, rgba(255,120,164,0.32396708683473385) 100%);">
-      <th scope="col">Mã lớp</th>
-      <th scope="col">Môn học</th>
-      <th scope="col">Thứ</th>
-      <th scope="col">Tín chỉ</th>
-      <th scope="col">Bắt đầu</th>
-      <th scope="col">Kết thúc</th>
-      <th scope="col"></th>
-    </tr>
-    </thead>
-    <tbody>
-<?php
-while($row = mysqli_fetch_array($result))
-{
-  echo "<tr >
-  <th scope='row'>" . $row["id"] . "</th>
-  <td>" . $row["name"] . "</td>
-  <td>" . $row["day"] . "</td>
-  <td>" . $row["credit"] . "</td>
-  <td>" . $row["start_time"] . "</td>
-  <td>" . $row["end_time"] . "</td>
-  <td>
-  <a href='viewclass.php?id=" . $row['id']
-  . "'title='Danh sách lớp'>
-  <span class='fas fa-eye'></span></a>
-  <a href='updateclass.php?id=" . $row['id']
-  . "'title='Chỉnh sửa'>
-  <span class='fas fa-edit'></span></a>
-  <a href='deleteclass.php?id=" . $row['id']
-  . "'title='Xóa lớp'>
-  <span class='fas fa-trash'></span></a>
-  </tr>";
-}
-mysqli_free_result($result);
-?>
-</tbody>
-</table>
+<section class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;">
+              <div class="card-body p-5">
+                  <form action="includes/addclass.inc.php" method="post">
+
+                    <h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;font-weight: 900;color:black;">Thêm lớp mới
+                    </h2>
+                    <div class="" style="color:red;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['error'])) {
+                  echo $_SESSION['error'];
+                  unset($_SESSION['error']);
+                }
+                ?>
+                </div>
+                <div class="" style="color:green;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['success'])) {
+                  echo $_SESSION['success'];
+                  unset($_SESSION['success']);
+                }
+                ?>
+                </div>
+                    <div class="form-outline mb-4">
+                      <input type="text" name="ClassName" id="form2Example17" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example17">Môn học</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                      <input type="text" name="ClassDay" id="form2Example27" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">Thứ</label>
+                    </div>
+										<div class="form-outline mb-4">
+                      <input type="number" name="ClassCredit" id="form2Example27" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">Số tín chỉ</label>
+                    </div>
+										<div class="form-outline mb-4">
+                      <input type="number" name="ClassStart" id="form2Example27" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">Bắt đầu</label>
+                    </div>
+										<div class="form-outline mb-4">
+                      <input type="number" name="ClassEnd" id="form2Example27" class="form-control form-control-lg" />
+                      <label class="form-label" for="form2Example27">Kết thúc</label>
+                    </div>
+
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" type="submit" name="addclass-submit">Xác nhận</button>
+                    </div>
+                  </form>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- End your project here-->
 
   <!-- MDB -->
