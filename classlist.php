@@ -43,14 +43,18 @@ if(isset($_POST['class_search']))
     .td {
   text-align: center;
 }
+body{
+  background: rgb(222,252,249);
+background: linear-gradient(45deg, rgba(222,252,249,1) 100%, rgba(255,120,164,0) 100%);
+}
   </style>
 </head>
 
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(54,47,217);
+background: linear-gradient(45deg, rgba(54,47,217,1) 100%, rgba(255,120,164,0) 100%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -172,15 +176,24 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
   <!-- Container wrapper -->
 </nav>
 <!-- Navbar -->
+<br>
+<div style="text-align: center;"><h4>Danh sách lớp của bạn</h4></div>
+<hr>
 <form action="classlist.php" method="post">
-  <input type="text" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học">
-  <button type="submit" name="class_search">Tìm kiếm</button>
+  <div class="input-group">
+  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-outline w-25" aria-label="Search" aria-describedby="search-addon" style="border-color: #FAFAFA; border: solid;">
+  <button type="submit" name="class_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
+background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none;">
+<i class="fas fa-search"></i>
+</button>
+</div>
 </form>
 <br>
+
 <table class="table table-hover td">
   <thead>
-    <tr style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,0.3491771708683473) 0%, rgba(255,120,164,0.32396708683473385) 100%);">
+    <tr style="background: rgb(133,205,253);
+background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0) 100%);">
       <th scope="col">Mã lớp</th>
       <th scope="col">Môn học</th>
       <th scope="col">Thứ</th>
