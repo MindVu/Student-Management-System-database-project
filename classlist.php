@@ -19,7 +19,7 @@ if(isset($_POST['class_search']))
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
+  <title>Danh sách lớp</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -27,6 +27,8 @@ if(isset($_POST['class_search']))
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
+  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
   <style>
     .left-link{
       color:#d3d3d3;
@@ -40,21 +42,18 @@ if(isset($_POST['class_search']))
       color:#ff78a4;
       opacity: 0.5;
     }
-    .td {
-  text-align: center;
-}
-body{
-  background: rgb(222,252,249);
-background: linear-gradient(45deg, rgba(222,252,249,1) 100%, rgba(255,120,164,0) 100%);
-}
+    .td{
+      text-align: center;
+    }
   </style>
 </head>
+
 
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(54,47,217);
-background: linear-gradient(45deg, rgba(54,47,217,1) 100%, rgba(255,120,164,0) 100%);">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
+background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -83,43 +82,21 @@ background: linear-gradient(45deg, rgba(54,47,217,1) 100%, rgba(255,120,164,0) 1
             Home
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
-          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link left-link" aria-current="page" href="classlist.php">
             <div>
-            <i class="fas fa-chalkboard-teacher"></i>
+              <i class="fas fa-chalkboard-teacher"></i>
             </div>
             Class
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="classlist.php">Danh sách lớp</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="addclass.php">Thêm lớp mới</a>
-            </li>
-          </ul>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
-          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link left-link" aria-current="page" href="#">
             <div>
-            <i class="fas fa-user-graduate"></i>
+              <i class="fas fa-user-graduate"></i>
             </div>
             Students
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="#">Thông tin sinh viên</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Thêm sinh viên mới</a>
-            </li>
-          </ul>
         </li>
         <li class="nav-item text-center mx-2 mx-lg-1">
           <a class="nav-link left-link" aria-current="page" href="#!">
@@ -179,17 +156,17 @@ background: linear-gradient(45deg, rgba(54,47,217,1) 100%, rgba(255,120,164,0) 1
 <br>
 <div style="text-align: center;"><h4>Danh sách lớp của bạn</h4></div>
 <hr>
-<form action="classlist.php" method="post">
-  <div class="input-group">
-  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-outline w-25" aria-label="Search" aria-describedby="search-addon" style="border-color: #FAFAFA; border: solid;">
+<form action="classlist.php" method="post" style="margin: auto">
+  <div class="form-inline">
+  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-control w-25" style="text-align: ceter; margin: auto;">
   <button type="submit" name="class_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
 background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none;">
 <i class="fas fa-search"></i>
 </button>
-</div>
+  </div>
 </form>
+<a class="btn btn-primary btn-lg btn-floating" role="button" href="addclass.php"><i class="fas fa-plus"></i></a>
 <br>
-
 <table class="table table-hover td">
   <thead>
     <tr style="background: rgb(133,205,253);
@@ -203,7 +180,7 @@ background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0)
       <th scope="col"></th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
 <?php
 while($row = mysqli_fetch_array($result))
 {
@@ -230,12 +207,14 @@ mysqli_free_result($result);
 ?>
 </tbody>
 </table>
+
   <!-- End your project here-->
 
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+  </script>
 </body>
 
 </html>
