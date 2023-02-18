@@ -80,59 +80,13 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
       <!-- Left links -->
       <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
       <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="mainpage.php">
+          <a class="nav-link left-link" aria-current="page" href="classlist.php">
             <div>
-              <i class="fas fa-home fa-lg mb-1"></i>
+              <i class="fas fa-arrow-left"></i>
             </div>
-            Home
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
-          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            <div>
-            <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-            Class
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="classlist.php">Danh sách lớp</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="addclass.php">Thêm lớp mới</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
-          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
-            role="button"
-            data-mdb-toggle="dropdown"
-            aria-expanded="false">
-            <div>
-            <i class="fas fa-user-graduate"></i>
-            </div>
-            Students
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li>
-              <a class="dropdown-item" href="#">Thông tin sinh viên</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Thêm sinh viên mới</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#!">
-            <div>
-            <i class="fas fa-project-diagram"></i>
-            </div>
-            Projects
-          </a>
-        </li>
+        
       </ul>
       <!-- Left links -->
     </div>

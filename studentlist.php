@@ -1,18 +1,15 @@
 <?php
 session_start();
-if(isset($_GET['id']) && !empty(trim($_GET['id'])))
+require 'includes/db_connection.php';
+if(isset($_POST['student_search']))
 {
-  require_once 'includes/db_connection.php';
-  $ClassID=trim($_GET['id']);
-  $_SESSION['classid']=trim($_GET['id']);
-  $sql="SELECT * FROM student s
-  JOIN student_class sc ON sc.id_student=s.id
-  WHERE sc.id_class = " . $ClassID .";";
-  $result=mysqli_query($conn, $sql);
-  mysqli_close($conn);
+  $valuetosearch_student=$_POST['valuetosearch_student'];
+  $sql = "SELECT * FROM student WHERE CONCAT(id, name) LIKE '%".$valuetosearch_student."%'";
+  $result = mysqli_query($conn, $sql);
 }else
 {
-  echo "<h1>Something wrong bro...</h1>";
+  $sql = "SELECT * FROM student";
+  $result = mysqli_query($conn, $sql);
 }
 ?>
 <!DOCTYPE html>
@@ -22,7 +19,7 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
+  <title>Danh sách lớp</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -30,6 +27,8 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link href="css/addons/datatables.min.css" rel="stylesheet">
+  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
   <style>
     .left-link{
       color:#d3d3d3;
@@ -43,17 +42,22 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
       color:#ff78a4;
       opacity: 0.5;
     }
-    .td {
-  text-align: center;
+    .td{
+      text-align: center;
+    }
+    body{
+  background: rgb(239,250,253);
+background: linear-gradient(90deg, rgba(239,250,253,1) 100%, rgba(74,139,223,1) 100%);
 }
   </style>
 </head>
 
+
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -75,13 +79,37 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
       <!-- Left links -->
       <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
       <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="classlist.php">
+          <a class="nav-link left-link" aria-current="page" href="mainpage.php">
             <div>
-              <i class="fas fa-arrow-left"></i>
+              <i class="fas fa-home fa-lg mb-1"></i>
             </div>
+            Home
           </a>
         </li>
-        
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link left-link" aria-current="page" href="classlist.php">
+            <div>
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            Class
+          </a>
+        </li>
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link left-link" aria-current="page" href="studentlist.php">
+            <div>
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            Students
+          </a>
+        </li>
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link left-link" aria-current="page" href="#!">
+            <div>
+            <i class="fas fa-project-diagram"></i>
+            </div>
+            Projects
+          </a>
+        </li>
       </ul>
       <!-- Left links -->
     </div>
@@ -130,47 +158,72 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 </nav>
 <!-- Navbar -->
 <br>
+<div style="text-align: center;"><h4>Danh sách sinh viên</h4></div>
+<hr>
+<div style="text-align: center; font-weight: bold;">
+<form action="studentlist.php" method="post">
+  <div class="input-group">
+  <input type="search" name="valuetosearch" placeholder="Tìm sinh viên theo ID hoặc tên" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 470px; border-color: #FAFAFA; border: solid;">
+  <button type="submit" name="student_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
+background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none; text-align: left; margin-right: 470px;">
+<i class="fas fa-search"></i>
+</button>
+</div>
+</form>
+<p>
+  <?php
+  $sql2="SELECT COUNT(*) AS count FROM student WHERE gender = 'M'";
+  $result2 = mysqli_query($conn, $sql2);
+  $row = mysqli_fetch_array($result2);
+  echo "Male: ".$row["count"]."&nbsp;&nbsp;&nbsp;";
+  mysqli_free_result($result2);
+  $sql1="SELECT COUNT(*) AS count FROM student WHERE gender = 'F'";
+  $result1 = mysqli_query($conn, $sql1);
+  $row = mysqli_fetch_array($result1);
+  echo "Female: ".$row["count"]."<br>";
+  mysqli_free_result($result1);
+  ?>
+</p>
+<a class="btn btn-primary btn-lg btn-floating" role="button" href="addstudent.php"><i class="fas fa-plus"></i></a>
+</div>
+<br>
 <table class="table table-hover td">
   <thead>
-    <tr style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,0.3491771708683473) 0%, rgba(255,120,164,0.32396708683473385) 100%);">
+    <tr style="background: rgb(133,205,253);
+background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0) 100%);">
       <th scope="col">Mã sinh viên</th>
       <th scope="col">Tên</th>
       <th scope="col">Giới tính</th>
       <th scope="col">Ngày sinh</th>
-      <th scope="col">SĐT</th>
-      <th scope="col"></th>
+      <th scope="col">Số điện thoại</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody id="myTable">
 <?php
 while($row = mysqli_fetch_array($result))
 {
-  echo "<tr>
+  echo "<tr >
   <th scope='row'>" . $row["id"] . "</th>
   <td>" . $row["name"] . "</td>
   <td>" . $row["gender"] . "</td>
   <td>" . $row["dob"] . "</td>
   <td>" . $row["phone"] . "</td>
-  <td>
-  <a href='mark.php?id=" . $row['id']
-  . "'title='Chấm điểm'>
-  <span class='fas fa-highlighter' style='color: green'></span>&nbsp;&nbsp</a>
-  <a href='kick.php?id=" . $row['id']
-  . "'title='Xóa khỏi lớp'>
-  <span class='fas fa-user-slash' style='color: red'></span></a>
-  </tr>";
+ 
+  </tr>"
+;
 }
 mysqli_free_result($result);
 ?>
 </tbody>
 </table>
+
   <!-- End your project here-->
 
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+  </script>
 </body>
 
 </html>

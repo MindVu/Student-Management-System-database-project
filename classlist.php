@@ -19,7 +19,7 @@ if(isset($_POST['class_search']))
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Danh sách lớp</title>
+  <title>Material Design for Bootstrap</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -27,8 +27,6 @@ if(isset($_POST['class_search']))
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
-  <link href="css/addons/datatables.min.css" rel="stylesheet">
-  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
   <style>
     .left-link{
       color:#d3d3d3;
@@ -42,18 +40,21 @@ if(isset($_POST['class_search']))
       color:#ff78a4;
       opacity: 0.5;
     }
-    .td{
-      text-align: center;
-    }
+    .td {
+  text-align: center;
+}
+body{
+  background: rgb(239,250,253);
+background: linear-gradient(90deg, rgba(239,250,253,1) 100%, rgba(74,139,223,1) 100%);
+}
   </style>
 </head>
-
 
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -91,7 +92,7 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
           </a>
         </li>
         <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#">
+          <a class="nav-link left-link" aria-current="page" href="studentlist.php">
             <div>
               <i class="fas fa-user-graduate"></i>
             </div>
@@ -154,19 +155,33 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 </nav>
 <!-- Navbar -->
 <br>
-<div style="text-align: center;"><h4>Danh sách lớp của bạn</h4></div>
+<div style="text-align: center; color:#162942"><h4 >Danh sách lớp của bạn</h4></div>
 <hr>
-<form action="classlist.php" method="post" style="margin: auto">
-  <div class="form-inline">
-  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-control w-25" style="text-align: ceter; margin: auto;">
+<div style="text-align: center; font-weight: bold;">
+<form action="classlist.php" method="post">
+  <div class="input-group">
+  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 470px; border-color: #FAFAFA; border: solid;">
   <button type="submit" name="class_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
-background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none;">
+background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none; text-align: left; margin-right: 470px;">
 <i class="fas fa-search"></i>
 </button>
-  </div>
+</div>
 </form>
-<a class="btn btn-primary btn-lg btn-floating" role="button" href="addclass.php"><i class="fas fa-plus"></i></a>
+
+<p>
+  <?php
+  $query="SELECT COUNT(*) AS count FROM class WHERE id_teacher = '" . $_SESSION['userid'] ."'";
+  $res = mysqli_query($conn, $query);
+  $row = mysqli_fetch_array($res);
+  echo "Số lớp hiện có: ".$row["count"]."";
+  mysqli_free_result($res);
+  ?>
+</p>
+<a class="btn btn-primary btn-lg btn-floating" type="button" href="addclass.php"><i class="fas fa-plus"></i></a>
+</div>
+
 <br>
+
 <table class="table table-hover td">
   <thead>
     <tr style="background: rgb(133,205,253);
@@ -180,7 +195,7 @@ background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0)
       <th scope="col"></th>
     </tr>
     </thead>
-    <tbody id="myTable">
+    <tbody>
 <?php
 while($row = mysqli_fetch_array($result))
 {
@@ -194,27 +209,25 @@ while($row = mysqli_fetch_array($result))
   <td>
   <a href='viewclass.php?id=" . $row['id']
   . "'title='Danh sách lớp'>
-  <span class='fas fa-eye'></span></a>
+  <span class='fas fa-eye'></span>&nbsp;&nbsp</a>
   <a href='updateclass.php?id=" . $row['id']
   . "'title='Chỉnh sửa'>
-  <span class='fas fa-edit'></span></a>
+  <span class='fas fa-edit' style='color: green'></span>&nbsp;&nbsp</a>
   <a href='deleteclass.php?id=" . $row['id']
   . "'title='Xóa lớp'>
-  <span class='fas fa-trash'></span></a>
+  <span class='fas fa-trash' style='color: red'></span></a>
   </tr>";
 }
 mysqli_free_result($result);
 ?>
 </tbody>
 </table>
-
   <!-- End your project here-->
 
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript">
-  </script>
+  <script type="text/javascript"></script>
 </body>
 
 </html>
