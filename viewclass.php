@@ -153,8 +153,8 @@ while($row = mysqli_fetch_array($result))
   <td>" . $row["dob"] . "</td>
   <td>" . $row["phone"] . "</td>
   <td>
-  <a href='mark.php?id=" . $row['id']
-  . "'title='Chấm điểm'>
+  <a href='mark.php?Stuid=" . $row['id']
+  . "&Classid=".$ClassID."'title='Chấm điểm'>
   <span class='fas fa-highlighter' style='color: green'></span>&nbsp;&nbsp</a>
   <a href='kick.php?id=" . $row['id']
   . "'title='Xóa khỏi lớp'>
