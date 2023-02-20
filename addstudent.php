@@ -127,7 +127,22 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 
                     <h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;font-weight: 900;color:black;">Thêm sinh viên
                     </h2>
-                    
+                    <div class="" style="color:red;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['error'])) {
+                  echo $_SESSION['error'];
+                  $_SESSION['error']=NULL;
+                }
+                ?>
+                </div>
+                <div class="" style="color:green;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['success'])) {
+                  echo $_SESSION['success'];
+                  $_SESSION['success']=NULL;
+                }
+                ?>
+                </div>
                 
                     <div class="form-outline mb-4">
                       <input type="text" name="StudentName" id="form2Example17" class="form-control form-control-lg">
