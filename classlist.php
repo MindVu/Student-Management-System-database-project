@@ -27,6 +27,7 @@ if(isset($_POST['class_search']))
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .left-link{
       color:#d3d3d3;
@@ -160,14 +161,13 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 <div style="text-align: center; font-weight: bold;">
 <form action="classlist.php" method="post">
   <div class="input-group">
-  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 470px; border-color: #FAFAFA; border: solid;">
+  <input type="search" name="valuetosearch" placeholder="Tìm lớp theo ID hoặc môn học" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 460px; border-color: #FAFAFA; border: solid;">
   <button type="submit" name="class_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
-background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none; text-align: left; margin-right: 470px;">
+background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none; text-align: left; margin-right: 460px;">
 <i class="fas fa-search"></i>
 </button>
 </div>
 </form>
-
 <p>
   <?php
   $query="SELECT COUNT(*) AS count FROM class WHERE id_teacher = '" . $_SESSION['userid'] ."'";
@@ -179,7 +179,6 @@ background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 
 </p>
 <a class="btn btn-primary btn-lg btn-floating" type="button" href="addclass.php"><i class="fas fa-plus"></i></a>
 </div>
-
 <br>
 
 <table class="table table-hover td">
@@ -209,13 +208,13 @@ while($row = mysqli_fetch_array($result))
   <td>
   <a href='viewclass.php?id=" . $row['id']
   . "'title='Danh sách lớp'>
-  <span class='fas fa-eye'></span>&nbsp;&nbsp</a>
+  <span class='fas fa-eye'></span></a>
   <a href='updateclass.php?id=" . $row['id']
   . "'title='Chỉnh sửa'>
-  <span class='fas fa-edit' style='color: green'></span>&nbsp;&nbsp</a>
+  <span class='fas fa-edit'></span></a>
   <a href='deleteclass.php?id=" . $row['id']
   . "'title='Xóa lớp'>
-  <span class='fas fa-trash' style='color: red'></span></a>
+  <span class='fas fa-trash'></span></a>
   </tr>";
 }
 mysqli_free_result($result);

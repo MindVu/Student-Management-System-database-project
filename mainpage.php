@@ -16,6 +16,8 @@ session_start();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .left-link{
       color:#d3d3d3;
@@ -35,8 +37,8 @@ session_start();
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -139,18 +141,173 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 <!-- Background image -->
 <div id="intro"
        class="bg-image shadow-1-strong"
-       style="background-image: url(img/mainpageimg.jpg); height: 520px; background-size: cover;">
-    <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.6)">
+       style="background-image: url(img/6911.jpg); height: 540px; background-size: cover;">
+    <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.66)">
       <div class="container d-flex align-items-center justify-content-center text-center h-100">
         <div class="text-white">
           <h1 class="mb-3"><?php echo "Xin chào ".$_SESSION["username"]."!";?></h1>
           <h4 class="mb-4">Chào mừng đến hệ thống quản lý học tập LMS</h4>
-          <a class="btn btn-outline-light btn-lg mb-3" href="#!" role="button">Khám phá ngay!
+          <a class="btn btn-outline-light btn-lg mb-3" href="#carouselBasicExample" role="button">Khám phá ngay!
           </a>
+<!--       <div id="khampha">
+        <h2>Về chúng tôi</h2>
+    <p>Hệ thống quản lý sinh viên <abbr title="Learning Management System">LMS</abbr> là hệ thống được sinh ra nhằm hỗ trợ và cải thiện chất lượng đào tạo và quản lý sinh viên của trường Đại học Bách Khoa Hà Nội. Với những chức năng tiện ích, các giảng viên sẽ tiết kiệm được thời gian và nâng cao hiệu quả công việc quản lý lớp.</p>
+        </div> -->
         </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Carousel wrapper -->
+<div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+  <!-- Indicators -->
+  <div class="carousel-indicators">
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="0"
+      class="active"
+      aria-current="true"
+      aria-label="Slide 1"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="1"
+      aria-label="Slide 2"
+    ></button>
+    <button
+      type="button"
+      data-mdb-target="#carouselBasicExample"
+      data-mdb-slide-to="2"
+      aria-label="Slide 3"
+    ></button>
+  </div>
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <!-- Single item -->
+    <div class="carousel-item active">
+    <div class="bg-image">
+    <img src="img/305993.jpg" width="1304" height="500" class="d-block w-100" alt="Class"/>
+  <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
+</div>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Quản lý lớp học</h3>
+        <p>Chức năng quản lý lớp học gồm 2 phần chính: Danh sách lớp và Thêm lớp mới. Với chức năng này, giảng viên sẽ có thể dễ dàng theo dõi và chỉnh sửa được thông tin về các lớp học mình đang giảng dạy.</p>
+      </div>
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+    <div class="bg-image">
+    <img src="img/305992.jpg" width="1304" height="500" class="d-block w-100" alt="Class"/>
+  <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
+</div>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Quản lý sinh viên</h3>
+        <p>Chức năng quản lý sinh viên gồm 2 phần chính: Thông tin sinh viên và Thêm sinh viên mới. Với chức năng này, giảng viên sẽ có thể dễ dàng quản lý và nắm bắt được thông tin về quá trình học tập của từng sinh viên.</p>
+      </div>
+    </div>
+
+    <!-- Single item -->
+    <div class="carousel-item">
+    <div class="bg-image">
+    <img src="img/305991.jpg" width="1304" height="500" class="d-block w-100" alt="Class"/>
+  <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
+</div>
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Quản lý dự án</h3>
+        <p>Với chức năng này, giảng viên có thể quản lý và nắm bắt được thông tin và tiến trình của tất cả các dự án học tập của sinh viên.</p>
       </div>
     </div>
   </div>
+  <!-- Inner -->
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<!-- Carousel wrapper -->
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center p-4 border-bottom">
+    <div>
+      <a href="https://www.facebook.com/profile.php?id=100028071540456" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/%C4%91%E1%BA%A1t-nguy%E1%BB%85n-956509220/" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Learning Management System
+          </h6>
+          <p>
+          Hệ thống quản lý sinh viên <abbr title="Learning Management System">LMS</abbr> là hệ thống được sinh ra nhằm hỗ trợ và cải thiện chất lượng đào tạo và quản lý sinh viên của trường Đại học Bách Khoa Hà Nội.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Sản phẩm
+          </h6>
+          <p>
+            Quản lý lớp học
+          </p>
+          <p>
+            Quản lý sinh viên
+          </p>
+          <p>
+            Quản lý dự án
+          </p>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Liên hệ</h6>
+          <p><i class="fas fa-home me-3"></i> Đại học Bách Khoa Hà Nội</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i><a href="mailto: mylms@gmail.com">mylms@gmail.com</a>
+          </p>
+          <p><i class="fas fa-phone me-3"></i><a href="tel: +84989160060">(+84) 989 160 060</a></p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    <a class="text-reset fw-bold" href="#">&copy; Back to top</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
   <!-- Background image -->
   <!-- End your project here-->
 
@@ -158,6 +315,7 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
+  
 </body>
 
 </html>

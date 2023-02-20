@@ -4,7 +4,6 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
 {
   require_once 'includes/db_connection.php';
   $ClassID=trim($_GET['id']);
-  $_SESSION['classid']=trim($_GET['id']);
   $sql="SELECT * FROM student s
   JOIN student_class sc ON sc.id_student=s.id
   WHERE sc.id_class = " . $ClassID .";";
@@ -52,8 +51,8 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->
@@ -130,15 +129,21 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 </nav>
 <!-- Navbar -->
 <br>
+<div style="text-align: center; color:#162942"><h4 ><?php echo "Danh sách lớp ".$ClassID; ?></h4>
+<hr>
+<a class="btn btn-primary btn-lg btn-floating" role="button" href="addtoclass.php"><i class="fas fa-plus"></i></a>
+</div>
+<br>
 <table class="table table-hover td">
   <thead>
-    <tr style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,0.3491771708683473) 0%, rgba(255,120,164,0.32396708683473385) 100%);">
+    <tr style="background: rgb(133,205,253);
+background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0) 100%);">
       <th scope="col">Mã sinh viên</th>
       <th scope="col">Tên</th>
       <th scope="col">Giới tính</th>
       <th scope="col">Ngày sinh</th>
       <th scope="col">SĐT</th>
+      <th scope="col">Điểm</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -146,12 +151,13 @@ background: linear-gradient(45deg, rgba(29,38,113,0.3491771708683473) 0%, rgba(2
 <?php
 while($row = mysqli_fetch_array($result))
 {
-  echo "<tr>
+  echo "<tr >
   <th scope='row'>" . $row["id"] . "</th>
   <td>" . $row["name"] . "</td>
   <td>" . $row["gender"] . "</td>
   <td>" . $row["dob"] . "</td>
   <td>" . $row["phone"] . "</td>
+  <td>" . $row["mark"] . "</td>
   <td>
   <a href='mark.php?Stuid=" . $row['id']
   . "&Classid=".$ClassID."'title='Chấm điểm'>

@@ -158,7 +158,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 </nav>
 <!-- Navbar -->
 <br>
-<div style="text-align: center;"><h4>Danh sách sinh viên</h4></div>
+<div style="text-align: center; color:#162942"><h4>Danh sách sinh viên</h4></div>
 <hr>
 <div style="text-align: center; font-weight: bold;">
 <form action="studentlist.php" method="post">
@@ -175,12 +175,12 @@ background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 
   $sql2="SELECT COUNT(*) AS count FROM student WHERE gender = 'M'";
   $result2 = mysqli_query($conn, $sql2);
   $row = mysqli_fetch_array($result2);
-  echo "Male: ".$row["count"]."&nbsp;&nbsp;&nbsp;";
+  echo "Nam: ".$row["count"]."&nbsp;&nbsp;&nbsp;";
   mysqli_free_result($result2);
   $sql1="SELECT COUNT(*) AS count FROM student WHERE gender = 'F'";
   $result1 = mysqli_query($conn, $sql1);
   $row = mysqli_fetch_array($result1);
-  echo "Female: ".$row["count"]."<br>";
+  echo "Nữ: ".$row["count"]."<br>";
   mysqli_free_result($result1);
   ?>
 </p>
@@ -196,6 +196,7 @@ background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0)
       <th scope="col">Giới tính</th>
       <th scope="col">Ngày sinh</th>
       <th scope="col">Số điện thoại</th>
+      <th scope="col">GPA</th>
     </tr>
     </thead>
     <tbody id="myTable">
@@ -208,7 +209,7 @@ while($row = mysqli_fetch_array($result))
   <td>" . $row["gender"] . "</td>
   <td>" . $row["dob"] . "</td>
   <td>" . $row["phone"] . "</td>
- 
+  <td>" . $row["gpa"] . "</td>
   </tr>"
 ;
 }

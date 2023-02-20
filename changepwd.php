@@ -16,10 +16,11 @@ session_start();
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
 	<!-- MDB -->
 	<link rel="stylesheet" href="css/mdb.min.css" />
+	<link rel="stylesheet" href="css/style.css">
 	<style>
 		.gradient-custom-3 {
-			background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);
+			background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(6,6,64,1) 0%);
 		}
 
 	</style>
@@ -39,15 +40,15 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
                 <?php
                 if (isset($_SESSION['error'])) {
                   echo $_SESSION['error'];
-                  unset($_SESSION['error']);
+                  $_SESSION['error']=NULL;
                 }
                 ?>
                 </div>
-                <div class="text-center" style="color:green;font-weight: bold;">
+                <div class="" style="color:green;font-weight: bold;">
                 <?php
                 if (isset($_SESSION['success'])) {
                   echo $_SESSION['success'];
-                  unset($_SESSION['success']);
+                  $_SESSION['success']=NULL;
                 }
                 ?>
                 </div>

@@ -16,6 +16,7 @@ session_start();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
 
   </style>
@@ -23,8 +24,8 @@ session_start();
 
 <body>
   <!-- Start your project here-->
-  <section class="vh-100" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+  <section class="vh-100" style="background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(222,252,249,1) 0%);">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col col-xl-10">
@@ -45,7 +46,7 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
                 <?php
                 if (isset($_SESSION['error'])) {
                   echo $_SESSION['error'];
-                  unset($_SESSION['error']);
+                  $_SESSION['error']=NULL;
                 }
                 ?>
                 </div>
@@ -53,7 +54,7 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
                 <?php
                 if (isset($_SESSION['success'])) {
                   echo $_SESSION['success'];
-                  unset($_SESSION['success']);
+                  $_SESSION['success']=NULL;
                 }
                 ?>
                 </div>

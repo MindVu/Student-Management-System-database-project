@@ -132,10 +132,11 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 
                     <h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;font-weight: 900;color:black;">Chấm điểm
                     </h2>
+                    
                     <div class="" style="color:red;font-weight: bold;">
                 
                     <div class="form-outline mb-4">
-                      <input type="number" name="mark" id="form2Example17" class="form-control form-control-lg">
+                      <input type="number" step="0.01" name="mark" id="form2Example17" class="form-control form-control-lg">
                       <label class="form-label" for="form2Example17">Điểm số (Thang 10)</label>
                     </div>
                     <input type="hidden" value="<?php echo $ClassID; ?>" name="ClassID"/>

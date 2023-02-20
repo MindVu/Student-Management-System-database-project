@@ -13,10 +13,11 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
 	<!-- MDB -->
 	<link rel="stylesheet" href="css/mdb.min.css" />
+	<link rel="stylesheet" href="css/style.css">
 	<style>
 		.gradient-custom-3 {
-			background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);
+			background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(6,6,64,1) 0%);
 		}
 
 	</style>
@@ -32,6 +33,20 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 						<div class="card-body p-5">
 							<h2 class="fw-normal mb-3 pb-3 text-center" style="letter-spacing: 1px;font-weight: 900;color:black;">
 								Đặt lại mật khẩu</h2>
+								<?php
+                if (isset($_SESSION['error'])) {
+                  echo $_SESSION['error'];
+                  $_SESSION['error']=NULL;
+                }
+                ?>
+                </div>
+                <div class="" style="color:green;font-weight: bold;">
+                <?php
+                if (isset($_SESSION['success'])) {
+                  echo $_SESSION['success'];
+                  $_SESSION['success']=NULL;
+                }
+                ?>
 							<form action="includes/resetpwd.inc.php" method="post">
 								<div class="form-outline mb-4">
 									<input type="text" name="id" id="form3Example3cg" class="form-control form-control-lg" />
