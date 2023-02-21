@@ -21,6 +21,7 @@ if(isset($_GET['Stuid']) && !empty(trim($_GET['Stuid'])) && isset($_GET['Classid
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .left-link{
       color:#d3d3d3;
@@ -35,8 +36,8 @@ if(isset($_GET['Stuid']) && !empty(trim($_GET['Stuid'])) && isset($_GET['Classid
       opacity: 0.5;
     }
 		.gradient-custom-3 {
-      background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);
+      background: rgb(239,250,253);
+background: linear-gradient(90deg, rgba(239,250,253,1) 100%, rgba(74,139,223,1) 100%);
     }
   </style>
 </head>
@@ -44,8 +45,8 @@ background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%
 <body>
   <!-- Start your project here-->
   <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(29,38,113);
-background: linear-gradient(45deg, rgba(29,38,113,1) 0%, rgba(195,55,100,1) 100%);">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
+background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
     <!-- Toggle button -->

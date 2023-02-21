@@ -4,6 +4,7 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
 {
   require_once 'includes/db_connection.php';
   $ClassID=trim($_GET['id']);
+  $_SESSION['classid']=$ClassID;
   $sql="SELECT * FROM student s
   JOIN student_class sc ON sc.id_student=s.id
   WHERE sc.id_class = " . $ClassID .";";
@@ -29,6 +30,7 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
+  <link rel="stylesheet" href="css/style.css">
   <style>
     .left-link{
       color:#d3d3d3;
@@ -131,7 +133,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 <br>
 <div style="text-align: center; color:#162942"><h4 ><?php echo "Danh sách lớp ".$ClassID; ?></h4>
 <hr>
-<a class="btn btn-primary btn-lg btn-floating" role="button" href="addtoclass.php"><i class="fas fa-plus"></i></a>
+<a class="btn btn-primary btn-lg btn-floating" role="button" href='addtoclass.php?'><i class="fas fa-plus"></i></a>
 </div>
 <br>
 <table class="table table-hover td">

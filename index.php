@@ -32,7 +32,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(222,252,249,1) 0
           <div class="card" style="border-radius: 1rem;">
             <div class="row g-0">
               <div class="col-md-6 col-lg-5 d-none d-md-block">
-                <img src="img/login.jpeg" alt="login form" class="img-fluid"
+                <img src="img/loginf.jpg" alt="login form" class="img-fluid"
                   style="border-radius: 1rem 0 0 1rem;height: 100%;object-fit: cover;image-rendering: pixelated;" />
               </div>
               <div class="col-md-6 col-lg-7 d-flex align-items-center">

@@ -17,8 +17,10 @@ session_start();
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
 
-  <link rel="stylesheet" href="css/style.css">
   <style>
+    *{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
     .left-link{
       color:#d3d3d3;
       transition: opacity 0.15s;
@@ -149,10 +151,6 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
           <h4 class="mb-4">Chào mừng đến hệ thống quản lý học tập LMS</h4>
           <a class="btn btn-outline-light btn-lg mb-3" href="#carouselBasicExample" role="button">Khám phá ngay!
           </a>
-<!--       <div id="khampha">
-        <h2>Về chúng tôi</h2>
-    <p>Hệ thống quản lý sinh viên <abbr title="Learning Management System">LMS</abbr> là hệ thống được sinh ra nhằm hỗ trợ và cải thiện chất lượng đào tạo và quản lý sinh viên của trường Đại học Bách Khoa Hà Nội. Với những chức năng tiện ích, các giảng viên sẽ tiết kiệm được thời gian và nâng cao hiệu quả công việc quản lý lớp.</p>
-        </div> -->
         </div>
       </div>
 
@@ -189,36 +187,36 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
     <!-- Single item -->
     <div class="carousel-item active">
     <div class="bg-image">
-    <img src="img/305993.jpg" width="1304" height="500" class="d-block w-100" alt="Class"/>
+    <img src="img/305993.jpg" width="1304" height="605" class="d-block w-100" alt="Class"/>
   <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
 </div>
       <div class="carousel-caption d-none d-md-block">
-        <h3>Quản lý lớp học</h3>
-        <p>Chức năng quản lý lớp học gồm 2 phần chính: Danh sách lớp và Thêm lớp mới. Với chức năng này, giảng viên sẽ có thể dễ dàng theo dõi và chỉnh sửa được thông tin về các lớp học mình đang giảng dạy.</p>
+        <h2>Quản lý lớp học</h2>
+        <p style="font-size: 20px">Chức năng quản lý lớp học gồm 2 phần chính: Danh sách lớp và Thêm lớp mới. Với chức năng này, giảng viên sẽ có thể dễ dàng theo dõi và chỉnh sửa được thông tin về các lớp học mình đang giảng dạy.</p>
       </div>
     </div>
 
     <!-- Single item -->
     <div class="carousel-item">
     <div class="bg-image">
-    <img src="img/305992.jpg" width="1304" height="500" class="d-block w-100" alt="Class"/>
+    <img src="img/305992.jpg" width="1304" height="605" class="d-block w-100" alt="Class"/>
   <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
 </div>
       <div class="carousel-caption d-none d-md-block">
-        <h3>Quản lý sinh viên</h3>
-        <p>Chức năng quản lý sinh viên gồm 2 phần chính: Thông tin sinh viên và Thêm sinh viên mới. Với chức năng này, giảng viên sẽ có thể dễ dàng quản lý và nắm bắt được thông tin về quá trình học tập của từng sinh viên.</p>
+        <h2>Quản lý sinh viên</h2>
+        <p style="font-size: 20px">Chức năng quản lý sinh viên gồm 2 phần chính: Thông tin sinh viên và Thêm sinh viên mới. Với chức năng này, giảng viên sẽ có thể dễ dàng quản lý và nắm bắt được thông tin về quá trình học tập của từng sinh viên.</p>
       </div>
     </div>
 
     <!-- Single item -->
     <div class="carousel-item">
     <div class="bg-image">
-    <img src="img/305991.jpg" width="1304" height="500" class="d-block w-100" alt="Class"/>
+    <img src="img/305991.jpg" width="1304" height="605" class="d-block w-100" alt="Class"/>
   <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
 </div>
       <div class="carousel-caption d-none d-md-block">
-        <h3>Quản lý dự án</h3>
-        <p>Với chức năng này, giảng viên có thể quản lý và nắm bắt được thông tin và tiến trình của tất cả các dự án học tập của sinh viên.</p>
+        <h2>Quản lý dự án</h2>
+        <p style="font-size: 20px">Với chức năng này, giảng viên có thể quản lý và nắm bắt được thông tin và tiến trình của tất cả các dự án học tập của sinh viên.</p>
       </div>
     </div>
   </div>

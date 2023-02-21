@@ -156,7 +156,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 </nav>
 <!-- Navbar -->
 <br>
-<div style="text-align: center; color:#162942"><h4 >Danh sách lớp của bạn</h4></div>
+<div style="text-align: center; color:#162942"><h2 >Danh sách lớp của bạn</h2></div>
 <hr>
 <div style="text-align: center; font-weight: bold;">
 <form action="classlist.php" method="post">
