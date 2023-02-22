@@ -16,6 +16,7 @@ if(isset($_POST['student_search']))
 <html lang="en">
 
 <head>
+  <title>Danh sách sinh viên</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -103,14 +104,6 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
             Students
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#!">
-            <div>
-            <i class="fas fa-project-diagram"></i>
-            </div>
-            Projects
-          </a>
-        </li>
       </ul>
       <!-- Left links -->
     </div>
@@ -164,7 +157,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 <div style="text-align: center; font-weight: bold;">
 <form action="studentlist.php" method="post">
   <div class="input-group">
-  <input type="search" name="valuetosearch" placeholder="Tìm sinh viên theo ID hoặc tên" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 470px; border-color: #FAFAFA; border: solid;">
+  <input type="search" name="valuetosearch_student" placeholder="Tìm sinh viên theo ID hoặc tên" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 470px; border-color: #FAFAFA; border: solid;">
   <button type="submit" name="student_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
 background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none; text-align: left; margin-right: 470px;">
 <i class="fas fa-search"></i>
@@ -185,7 +178,7 @@ background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 
   mysqli_free_result($result1);
   ?>
 </p>
-<a class="btn btn-primary btn-lg btn-floating" role="button" href="addstudent.php"><i class="fas fa-plus"></i></a>
+<a class="btn btn-primary btn-lg btn-floating" role="button" href="addstudent.php" title="Thêm sinh viên mới"><i class="fas fa-plus"></i></a>
 </div>
 <br>
 <table class="table table-hover td">

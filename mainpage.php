@@ -5,6 +5,7 @@ session_start();
 <html lang="en">
 
 <head>
+  <title>Trang chủ</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -83,14 +84,6 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
               <i class="fas fa-user-graduate"></i>
             </div>
             Students
-          </a>
-        </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#!">
-            <div>
-            <i class="fas fa-project-diagram"></i>
-            </div>
-            Projects
           </a>
         </li>
       </ul>
@@ -174,12 +167,6 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
       data-mdb-slide-to="1"
       aria-label="Slide 2"
     ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
   </div>
 
   <!-- Inner -->
@@ -192,7 +179,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 </div>
       <div class="carousel-caption d-none d-md-block">
         <h2>Quản lý lớp học</h2>
-        <p style="font-size: 20px">Chức năng quản lý lớp học gồm 2 phần chính: Danh sách lớp và Thêm lớp mới. Với chức năng này, giảng viên sẽ có thể dễ dàng theo dõi và chỉnh sửa được thông tin về các lớp học mình đang giảng dạy.</p>
+        <p style="font-size: 20px">Chức năng quản lý lớp học với những tính năng như: hiển thị danh sách lớp, tìm kiếm lớp, chấm điểm,... Đây là công cụ hỗ trợ đắc lực cho giáo viên trong việc điều chỉnh và nắm bắt thông tin dữ liệu lớp đang giảng dạy.</p>
       </div>
     </div>
 
@@ -204,21 +191,11 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 </div>
       <div class="carousel-caption d-none d-md-block">
         <h2>Quản lý sinh viên</h2>
-        <p style="font-size: 20px">Chức năng quản lý sinh viên gồm 2 phần chính: Thông tin sinh viên và Thêm sinh viên mới. Với chức năng này, giảng viên sẽ có thể dễ dàng quản lý và nắm bắt được thông tin về quá trình học tập của từng sinh viên.</p>
+        <p style="font-size: 20px">Chức năng quản lý sinh viên được tích hợp những công cụ hỗ trợ như hiển thị thông tin sinh viên, tìm kiếm sinh viên, thêm sinh viên. Qua đó, giáo viên có thể nắm bắt thông tin và tình hình học tập của sinh viên.</p>
       </div>
     </div>
 
-    <!-- Single item -->
-    <div class="carousel-item">
-    <div class="bg-image">
-    <img src="img/305991.jpg" width="1304" height="605" class="d-block w-100" alt="Class"/>
-  <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.6)"></div>
-</div>
-      <div class="carousel-caption d-none d-md-block">
-        <h2>Quản lý dự án</h2>
-        <p style="font-size: 20px">Với chức năng này, giảng viên có thể quản lý và nắm bắt được thông tin và tiến trình của tất cả các dự án học tập của sinh viên.</p>
-      </div>
-    </div>
+    
   </div>
   <!-- Inner -->
 

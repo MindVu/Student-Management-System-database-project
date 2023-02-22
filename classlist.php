@@ -16,6 +16,8 @@ if(isset($_POST['class_search']))
 <html lang="en">
 
 <head>
+<title>Danh sách lớp</title>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -100,14 +102,6 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
             Students
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="#!">
-            <div>
-            <i class="fas fa-project-diagram"></i>
-            </div>
-            Projects
-          </a>
-        </li>
       </ul>
       <!-- Left links -->
     </div>
@@ -177,7 +171,7 @@ background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 
   mysqli_free_result($res);
   ?>
 </p>
-<a class="btn btn-primary btn-lg btn-floating" type="button" href="addclass.php"><i class="fas fa-plus"></i></a>
+<a class="btn btn-primary btn-lg btn-floating" type="button" href="addclass.php" title="Tạo lớp mới"><i class="fas fa-plus"></i></a>
 </div>
 <br>
 
@@ -208,10 +202,10 @@ while($row = mysqli_fetch_array($result))
   <td>
   <a href='viewclass.php?id=" . $row['id']
   . "'title='Danh sách lớp'>
-  <span class='fas fa-eye'></span></a>
+  <span class='fas fa-eye'>&nbsp;&nbsp</span></a>
   <a href='updateclass.php?id=" . $row['id']
   . "'title='Chỉnh sửa'>
-  <span class='fas fa-edit'></span></a>
+  <span class='fas fa-edit'>&nbsp;&nbsp</span></a>
   <a href='deleteclass.php?id=" . $row['id']
   . "'title='Xóa lớp'>
   <span class='fas fa-trash'></span></a>

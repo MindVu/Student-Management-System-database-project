@@ -24,7 +24,7 @@ if(isset($_POST['addtoclass-submit']))
     }
       mysqli_stmt_bind_param($stmt, "ii",$StuID,$ClassID);
       mysqli_stmt_execute($stmt);
-      $_SESSION['success']='Sign up successfully';
+      $_SESSION['success']='Thêm sinh viên thành công';
       header("location: ../addtoclass.php?success");
       exit();
   }

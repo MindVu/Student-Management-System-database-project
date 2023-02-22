@@ -10,6 +10,7 @@ if(isset($_GET['Stuid']) && !empty(trim($_GET['Stuid'])) && isset($_GET['Classid
 <html lang="en">
 
 <head>
+<title>Chấm điểm</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -68,7 +69,7 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
       <!-- Left links -->
       <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
       <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="classlist.php">
+          <a class="nav-link left-link" aria-current="page" href="<?php echo "viewclass.php?id=".$ClassID ?>">
             <div>
               <i class="fas fa-arrow-left"></i>
             </div>

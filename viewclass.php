@@ -7,9 +7,9 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
   $_SESSION['classid']=$ClassID;
   $sql="SELECT * FROM student s
   JOIN student_class sc ON sc.id_student=s.id
-  WHERE sc.id_class = " . $ClassID .";";
+  WHERE sc.id_class = " . $ClassID ."
+  ORDER BY sc.id_student ASC;";
   $result=mysqli_query($conn, $sql);
-  mysqli_close($conn);
 }else
 {
   echo "<h1>Something wrong bro...</h1>";
@@ -19,6 +19,7 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
 <html lang="en">
 
 <head>
+<title>Thông tin lớp</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
@@ -46,6 +47,10 @@ if(isset($_GET['id']) && !empty(trim($_GET['id'])))
     }
     .td {
   text-align: center;
+}
+body{
+  background: rgb(239,250,253);
+background: linear-gradient(90deg, rgba(239,250,253,1) 100%, rgba(74,139,223,1) 100%);
 }
   </style>
 </head>
@@ -131,9 +136,20 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 </nav>
 <!-- Navbar -->
 <br>
-<div style="text-align: center; color:#162942"><h4 ><?php echo "Danh sách lớp ".$ClassID; ?></h4>
+<div style="text-align: center; color:#162942"><h3 >Danh sách lớp <b><?php echo $ClassID; ?></b></h3>
 <hr>
-<a class="btn btn-primary btn-lg btn-floating" role="button" href='addtoclass.php?'><i class="fas fa-plus"></i></a>
+<p>
+  <?php
+  $query="SELECT COUNT(*) AS count, ROUND(AVG(mark), 2) AS average_mark FROM student_class WHERE id_class = '" . $ClassID ."'";
+  $res = mysqli_query($conn, $query);
+  $row = mysqli_fetch_array($res);
+  echo "Số lượng sinh viên: ".$row["count"]."<br>
+  Điểm trung bình: ".$row["average_mark"]."";
+  mysqli_free_result($res);
+  mysqli_close($conn);
+  ?>
+</p>
+<a class="btn btn-primary btn-lg btn-floating" role="button" href='addtoclass.php?' title="Thêm sinh viên vào lớp"><i class="fas fa-plus"></i></a>
 </div>
 <br>
 <table class="table table-hover td">
