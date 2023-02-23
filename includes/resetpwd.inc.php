@@ -17,7 +17,7 @@ if (isset($_POST['resetpwd-submit'])) {
     exit();
   }
 	$hashedOne = password_hash("1111", PASSWORD_DEFAULT, ['cost' => 15]);
-	mysqli_stmt_bind_param($stmt, "ss", $hashedOne, $id);
+	mysqli_stmt_bind_param($stmt, "si", $hashedOne, $id);
   mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
     mysqli_close($conn);

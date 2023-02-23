@@ -32,7 +32,7 @@ if (isset($_POST['addclass-submit'])) {
 		exit();
 	}
 
-	mysqli_stmt_bind_param($stmt, "sssiii", $ClassName, $ClassDay, $_SESSION["userid"], $ClassCredit, $ClassStart, $ClassEnd);
+	mysqli_stmt_bind_param($stmt, "ssiiii", $ClassName, $ClassDay, $_SESSION["userid"], $ClassCredit, $ClassStart, $ClassEnd);
       mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
 	mysqli_close($conn);

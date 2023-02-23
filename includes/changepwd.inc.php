@@ -30,7 +30,7 @@ if (isset($_POST['changepwd-submit'])) {
     exit();
   }
 
-  mysqli_stmt_bind_param($stmt, "s", $_SESSION["userid"]);
+  mysqli_stmt_bind_param($stmt, "i", $_SESSION["userid"]);
   mysqli_stmt_execute($stmt);
   $result = mysqli_stmt_get_result($stmt);
   if ($row = mysqli_fetch_assoc($result)) {
@@ -51,7 +51,7 @@ if (isset($_POST['changepwd-submit'])) {
       exit();
     }
     $hashedNewPwd = password_hash($NewPwd, PASSWORD_DEFAULT, ['cost' => 15]);
-    mysqli_stmt_bind_param($stmt, "ss", $hashedNewPwd, $_SESSION["userid"]);
+    mysqli_stmt_bind_param($stmt, "si", $hashedNewPwd, $_SESSION["userid"]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

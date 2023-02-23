@@ -70,13 +70,24 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
             Home
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="classlist.php">
+        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
+          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false">
             <div>
               <i class="fas fa-chalkboard-teacher"></i>
             </div>
             Class
           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="classlist.php">Danh sách lớp</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="request.php">Danh sách lớp yêu cầu</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item text-center mx-2 mx-lg-1">
           <a class="nav-link left-link" aria-current="page" href="studentlist.php">
@@ -86,6 +97,8 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
             Students
           </a>
         </li>
+  </a>
+  </li>
       </ul>
       <!-- Left links -->
     </div>

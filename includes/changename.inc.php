@@ -18,7 +18,7 @@ if(isset($_POST['changename-submit']))
       header("Location: ../changename.php?error=sqlerror");
       exit();
     }
-    mysqli_stmt_bind_param($stmt, "ss", $NewName, $_SESSION["userid"]);
+    mysqli_stmt_bind_param($stmt, "si", $NewName, $_SESSION["userid"]);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     mysqli_close($conn);

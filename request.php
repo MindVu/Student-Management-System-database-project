@@ -1,26 +1,19 @@
 <?php
 session_start();
 require 'includes/db_connection.php';
-if(isset($_POST['student_search']))
-{
-  $valuetosearch_student=$_POST['valuetosearch_student'];
-  $sql = "SELECT * FROM student WHERE CONCAT(id, name) LIKE '%".$valuetosearch_student."%'";
+  $sql="SELECT * FROM request WHERE id_new = " . $_SESSION['userid'] ."";
   $result = mysqli_query($conn, $sql);
-}else
-{
-  $sql = "SELECT * FROM student";
-  $result = mysqli_query($conn, $sql);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Danh sách sinh viên</title>
+<title>Danh sách lớp</title>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Danh sách lớp</title>
+  <title>Material Design for Bootstrap</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
@@ -28,9 +21,7 @@ if(isset($_POST['student_search']))
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <!-- MDB -->
   <link rel="stylesheet" href="css/mdb.min.css" />
-  <link href="css/addons/datatables.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="js/addons/datatables.min.js"></script>
   <style>
     .left-link{
       color:#d3d3d3;
@@ -44,21 +35,20 @@ if(isset($_POST['student_search']))
       color:#ff78a4;
       opacity: 0.5;
     }
-    .td{
-      text-align: center;
-    }
-    body{
+    .td {
+  text-align: center;
+}
+body{
   background: rgb(239,250,253);
 background: linear-gradient(90deg, rgba(239,250,253,1) 100%, rgba(74,139,223,1) 100%);
 }
   </style>
 </head>
 
-
 <body>
   <!-- Start your project here-->
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
 background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
   <div class="container-fluid">
@@ -165,73 +155,56 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 </nav>
 <!-- Navbar -->
 <br>
-<div style="text-align: center; color:#162942"><h2>Danh sách sinh viên</h2></div>
+<div style="text-align: center; color:#162942"><h2 >Danh sách lớp được yêu cầu</h2></div>
 <hr>
 <div style="text-align: center; font-weight: bold;">
-<form action="studentlist.php" method="post">
-  <div class="input-group">
-  <input type="search" name="valuetosearch_student" placeholder="Tìm sinh viên theo ID hoặc tên" class="form-control w-25" aria-label="Search" aria-describedby="search-addon" style="text-align: center; margin-left: 470px; border-color: #FAFAFA; border: solid;">
-  <button type="submit" name="student_search" class="btn btn-outline-primary" style="background: rgb(60,132,171);
-background: linear-gradient(45deg, rgba(60,132,171,1) 100%, rgba(255,120,164,0) 100%); color: #FAFAFA; border: none; text-align: left; margin-right: 470px;">
-<i class="fas fa-search"></i>
-</button>
-</div>
-</form>
 <p>
   <?php
-  $sql2="SELECT COUNT(*) AS count FROM student WHERE gender = 'M'";
-  $result2 = mysqli_query($conn, $sql2);
-  $row = mysqli_fetch_array($result2);
-  echo "Nam: ".$row["count"]."&nbsp;&nbsp;&nbsp;";
-  mysqli_free_result($result2);
-  $sql1="SELECT COUNT(*) AS count FROM student WHERE gender = 'F'";
-  $result1 = mysqli_query($conn, $sql1);
-  $row = mysqli_fetch_array($result1);
-  echo "Nữ: ".$row["count"]."<br>";
-  mysqli_free_result($result1);
+  $query="SELECT COUNT(*) AS count FROM request WHERE id_new = '" . $_SESSION['userid'] ."'";
+  $res = mysqli_query($conn, $query);
+  $row = mysqli_fetch_array($res);
+  echo "Số lớp hiện có: ".$row["count"]."";
+  mysqli_free_result($res);
   ?>
 </p>
-<a class="btn btn-primary btn-lg btn-floating" role="button" href="addstudent.php" title="Thêm sinh viên mới"><i class="fas fa-plus"></i></a>
 </div>
 <br>
+
 <table class="table table-hover td">
   <thead>
     <tr style="background: rgb(133,205,253);
 background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0) 100%);">
-      <th scope="col">Mã sinh viên</th>
-      <th scope="col">Tên</th>
-      <th scope="col">Giới tính</th>
-      <th scope="col">Ngày sinh</th>
-      <th scope="col">Số điện thoại</th>
-      <th scope="col">GPA</th>
+      <th scope="col">Mã lớp</th>
+      <th scope="col">Giáo viên yêu cầu</th>
+      <th scope="col"></th>
     </tr>
     </thead>
-    <tbody id="myTable">
+    <tbody>
 <?php
 while($row = mysqli_fetch_array($result))
 {
   echo "<tr >
-  <th scope='row'>" . $row["id"] . "</th>
-  <td>" . $row["name"] . "</td>
-  <td>" . $row["gender"] . "</td>
-  <td>" . $row["dob"] . "</td>
-  <td>" . $row["phone"] . "</td>
-  <td>" . $row["gpa"] . "</td>
-  </tr>"
-;
+  <th scope='row'>" . $row["id_class"] . "</th>
+  <td>" . $row["id_old"] . "</td>
+  <td>
+  <a href='includes/accept.php?classid=" . $row['id_class']
+  . "&idnew=".$row['id_new']."&idold=".$row['id_old']."'title='Xác nhận'>
+  <span class='fas fa-check' style='color: green'>&nbsp;&nbsp</span></a>
+  <a href='includes/decline.php?classid=" . $row['id_class']
+  . "&idnew=".$row['id_new']."&idold=".$row['id_old']."'title='Từ chối'>
+  <span class='fas fa-times' style='color: red'></span></a>
+  </tr>";
 }
 mysqli_free_result($result);
 ?>
 </tbody>
 </table>
-
   <!-- End your project here-->
 
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
-  <script type="text/javascript">
-  </script>
+  <script type="text/javascript"></script>
 </body>
 
 </html>

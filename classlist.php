@@ -55,7 +55,7 @@ background: linear-gradient(90deg, rgba(239,250,253,1) 100%, rgba(74,139,223,1) 
 
 <body>
   <!-- Start your project here-->
-  <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: rgb(74,139,223);
 background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);">
   <!-- Container wrapper -->
@@ -86,13 +86,24 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
             Home
           </a>
         </li>
-        <li class="nav-item text-center mx-2 mx-lg-1">
-          <a class="nav-link left-link" aria-current="page" href="classlist.php">
+        <li class="nav-item text-center mx-2 mx-lg-1 dropdown">
+          <a class="nav-link left-link dropdown-toggle" aria-current="page" id="navbarDropdown"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false">
             <div>
               <i class="fas fa-chalkboard-teacher"></i>
             </div>
             Class
           </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="classlist.php">Danh sách lớp</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="request.php">Danh sách lớp yêu cầu</a>
+            </li>
+          </ul>
         </li>
         <li class="nav-item text-center mx-2 mx-lg-1">
           <a class="nav-link left-link" aria-current="page" href="studentlist.php">
@@ -102,6 +113,8 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
             Students
           </a>
         </li>
+  </a>
+  </li>
       </ul>
       <!-- Left links -->
     </div>
@@ -206,6 +219,9 @@ while($row = mysqli_fetch_array($result))
   <a href='updateclass.php?id=" . $row['id']
   . "'title='Chỉnh sửa'>
   <span class='fas fa-edit'>&nbsp;&nbsp</span></a>
+  <a href='transferclass.php?id=" . $row['id']
+  . "'title='Chuyển lớp'>
+  <span class='fas fa-exchange-alt'>&nbsp;&nbsp</span></a>
   <a href='deleteclass.php?id=" . $row['id']
   . "'title='Xóa lớp'>
   <span class='fas fa-trash'></span></a>
