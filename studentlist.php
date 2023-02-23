@@ -204,6 +204,7 @@ background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0)
       <th scope="col">Ngày sinh</th>
       <th scope="col">Số điện thoại</th>
       <th scope="col">GPA</th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody id="myTable">
@@ -217,6 +218,10 @@ while($row = mysqli_fetch_array($result))
   <td>" . $row["dob"] . "</td>
   <td>" . $row["phone"] . "</td>
   <td>" . $row["gpa"] . "</td>
+  <td>
+  <a href='studentclass.php?id=" . $row['id']
+  . "'title='Danh sách lớp theo học'>
+  <span class='fas fa-eye'></span></a>
   </tr>"
 ;
 }

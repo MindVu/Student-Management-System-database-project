@@ -1,14 +1,14 @@
 <?php
 session_start();
 require 'includes/db_connection.php';
-  $sql="SELECT * FROM request WHERE id_new = " . $_SESSION['userid'] ."";
+  $sql="SELECT * FROM request r JOIN class c ON c.id = r.id_class WHERE id_new = " . $_SESSION['userid'] ."";
   $result = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<title>Danh sách lớp</title>
+<title>Danh sách lớp yêu cầu</title>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -176,6 +176,10 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
 background: linear-gradient(45deg, rgba(133,205,253,1) 100%, rgba(255,120,164,0) 100%);">
       <th scope="col">Mã lớp</th>
       <th scope="col">Giáo viên yêu cầu</th>
+      <th scope="col">Môn học</th>
+      <th scope="col">Thứ</th>
+      <th scope="col">Bắt đầu</th>
+      <th scope="col">Kết thúc</th>
       <th scope="col"></th>
     </tr>
     </thead>
@@ -186,6 +190,10 @@ while($row = mysqli_fetch_array($result))
   echo "<tr >
   <th scope='row'>" . $row["id_class"] . "</th>
   <td>" . $row["id_old"] . "</td>
+  <td>" . $row["name"] . "</td>
+  <td>" . $row["day"] . "</td>
+  <td>" . $row["start_time"] . "</td>
+  <td>" . $row["end_time"] . "</td>
   <td>
   <a href='includes/accept.php?classid=" . $row['id_class']
   . "&idnew=".$row['id_new']."&idold=".$row['id_old']."'title='Xác nhận'>
