@@ -50,8 +50,8 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(6,6,64,1) 0%);
                 ?>
 							<form action="includes/resetpwd.inc.php" method="post">
 								<div class="form-outline mb-4">
-									<input type="text" name="id" id="form3Example3cg" class="form-control form-control-lg" />
-									<label class="form-label" for="form3Example3cg">Mã giáo viên</label>
+									<input type="text" name="id" id="form3Example4cg" class="form-control form-control-lg" />
+									<label class="form-label" for="form3Example4cg">Mã giáo viên</label>
 								</div>
 								<div class="d-flex justify-content-center">
 									<button type="submit" class="btn btn-dark btn-lg btn-block" name="resetpwd-submit">Xác nhận</button>

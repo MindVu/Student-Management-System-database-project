@@ -22,7 +22,7 @@ if(isset($_POST['marking']))
   $result=mysqli_query($conn, $sql);
   mysqli_close($conn);
   $_SESSION['success']="Cập nhật điểm thành công";
-    header("Location: ../mark.php?Stuid=".$StuID."&Classid=".$ClassID."&success");
+    header("Location: ../view.php?Stuid=".$StuID."&Classid=".$ClassID."&success");
     exit();
 }
 ?>

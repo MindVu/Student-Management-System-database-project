@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 23, 2023 at 02:01 PM
+-- Generation Time: Feb 24, 2023 at 12:21 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -47,8 +47,9 @@ INSERT INTO `class` (`id`, `name`, `day`, `id_teacher`, `credit`, `start_time`, 
 (3, 'Physics', 'sáu', 10, 4, 10, 12),
 (4, 'Chủ nghĩa Xã hội Khoa học', 'năm', 12, 3, 8, 9),
 (5, 'Database', 'ba', 11, 3, 1, 3),
-(7, 'Discrete Math', 'ba', 12, 2, 5, 8),
-(8, 'Database lab', 'hai', 11, 2, 1, 4);
+(7, 'Discrete Math', 'ba', 11, 2, 5, 8),
+(8, 'Database lab', 'hai', 11, 2, 1, 4),
+(9, 'DCSVN', 'tư', 11, 2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -62,13 +63,6 @@ CREATE TABLE `request` (
   `id_class` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`id_old`, `id_new`, `id_class`) VALUES
-(12, 11, 7);
-
 -- --------------------------------------------------------
 
 --
@@ -81,43 +75,61 @@ CREATE TABLE `student` (
   `gender` char(1) DEFAULT NULL,
   `dob` date DEFAULT NULL,
   `phone` varchar(30) DEFAULT NULL,
-  `gpa` decimal(10,2) DEFAULT NULL
+  `gpa` decimal(10,2) DEFAULT NULL,
+  `ranking` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `name`, `gender`, `dob`, `phone`, `gpa`) VALUES
-(1, 'Nam', 'M', '2003-12-01', '31688329', '2.75'),
-(2, 'Quỳnh', 'F', '2003-07-01', '00094243', '2.00'),
-(3, 'Hương', 'F', '2003-04-02', '36027899', '3.36'),
-(4, 'Hùng', 'M', '2003-12-08', '46373763', '3.20'),
-(5, 'Giang', 'F', '2003-02-04', '60248311', '1.83'),
-(6, 'Yến', 'F', '2003-08-12', '20844687', '1.80'),
-(7, 'Nguyệt', 'F', '2003-10-03', '90658030', '2.23'),
-(8, 'Minh', 'M', '2003-04-12', '55592239', '3.84'),
-(9, 'Thi', 'F', '2003-03-10', '24977376', '1.40'),
-(10, 'Thanh', 'M', '2003-04-18', '70701013', '3.00'),
-(11, 'Hảo', 'M', '2003-10-20', '65108775', '2.80'),
-(12, 'Hường', 'M', '2003-06-01', '89784878', '4.00'),
-(16, 'Vinh', 'M', '2004-02-18', '1088195', '4.00'),
-(17, 'Phương', 'F', '2003-01-08', '50777225', '1.20'),
-(18, 'Đình', 'M', '2004-02-05', '38861343', '1.94'),
-(19, 'Quyền', 'M', '2002-08-11', '47276347', '1.60'),
-(20, 'Quý ', 'M', '2002-11-25', '85659818', '2.80'),
-(21, 'Ngọc', 'F', '2003-07-07', '97967385', '1.60'),
-(22, 'Thảo', 'F', '2004-11-30', '83009641', '2.53'),
-(23, 'Thuần', 'M', '2003-05-31', '83761157', '2.40'),
-(24, 'Giang', 'F', '2003-09-18', '92568025', '2.56'),
-(25, 'Bích', 'F', '2002-10-06', '76246365', '1.68'),
-(26, 'Bình', 'M', '2004-01-08', '35250867', '3.49'),
-(27, 'Hải', 'M', '2003-08-08', '5625582', NULL),
-(28, 'Lan', 'F', '2002-07-27', '91378856', '2.80'),
-(29, 'Đạt', 'M', '2003-12-01', '98652364', NULL),
-(30, 'Hồng', 'F', '2002-09-24', '63352562', NULL),
-(31, 'Hải', 'M', '2004-07-24', '73972779', NULL),
-(32, 'Lionel Messi', 'M', '1987-05-16', '12132132', NULL);
+INSERT INTO `student` (`id`, `name`, `gender`, `dob`, `phone`, `gpa`, `ranking`) VALUES
+(1, 'Nam', 'M', '2003-12-01', '31688329', '2.75', NULL),
+(2, 'Quỳnh', 'F', '2003-07-01', '00094243', '2.40', NULL),
+(3, 'Hương', 'F', '2003-04-02', '36027899', '2.74', 'Khá'),
+(4, 'Hùng', 'M', '2003-12-08', '46373763', '3.20', NULL),
+(5, 'Giang', 'F', '2003-02-04', '60248311', '1.83', NULL),
+(6, 'Yến', 'F', '2003-08-12', '20844687', '2.35', 'Trung bình'),
+(7, 'Nguyệt', 'F', '2003-10-03', '90658030', '2.23', NULL),
+(8, 'Minh', 'M', '2003-04-12', '55592239', '3.84', NULL),
+(9, 'Thi', 'F', '2003-03-10', '24977376', '2.40', 'Trung bình'),
+(10, 'Thanh', 'M', '2003-04-18', '70701013', '3.30', 'Giỏi'),
+(11, 'Hảo', 'M', '2003-10-20', '65108775', '2.80', NULL),
+(12, 'Hường', 'M', '2003-06-01', '89784878', '4.00', NULL),
+(16, 'Vinh', 'M', '2004-02-18', '1088195', '4.00', 'Xuất sắc'),
+(17, 'Phương', 'F', '2003-01-08', '50777225', '1.20', NULL),
+(18, 'Đình', 'M', '2004-02-05', '38861343', '1.94', NULL),
+(19, 'Quyền', 'M', '2002-08-11', '47276347', '1.60', NULL),
+(20, 'Quý ', 'M', '2002-11-25', '85659818', '3.14', 'Khá'),
+(21, 'Ngọc', 'F', '2003-07-07', '97967385', '2.80', 'Khá'),
+(22, 'Thảo', 'F', '2004-11-30', '83009641', '2.53', NULL),
+(23, 'Thuần', 'M', '2003-05-31', '83761157', '2.40', NULL),
+(24, 'Giang', 'F', '2003-09-18', '92568025', '2.56', NULL),
+(25, 'Bích', 'F', '2002-10-06', '76246365', '1.68', NULL),
+(26, 'Bình', 'M', '2004-01-08', '35250867', '3.49', NULL),
+(27, 'Hải', 'M', '2003-08-08', '5625582', NULL, NULL),
+(28, 'Lan', 'F', '2002-07-27', '91378856', '2.80', NULL),
+(29, 'Đạt', 'M', '2003-12-01', '98652364', NULL, NULL),
+(30, 'Hồng', 'F', '2002-09-24', '63352562', NULL, NULL),
+(31, 'Hải', 'M', '2004-07-24', '73972779', NULL, NULL),
+(32, 'Lionel Messi', 'M', '1987-05-16', '12132132', NULL, NULL),
+(33, 'John Smith', 'U', '2121-08-24', '88913111', NULL, NULL);
+
+--
+-- Triggers `student`
+--
+DELIMITER $$
+CREATE TRIGGER `update_student_rank` BEFORE UPDATE ON `student` FOR EACH ROW SET NEW.ranking =
+CASE WHEN
+NEW.gpa>=3.60 THEN 'Xuất sắc'
+WHEN
+NEW.gpa>=3.20 THEN 'Giỏi'
+WHEN
+NEW.gpa>=2.50 THEN 'Khá'
+ELSE 'Trung bình'
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -137,11 +149,11 @@ CREATE TABLE `student_class` (
 
 INSERT INTO `student_class` (`id_student`, `id_class`, `mark`) VALUES
 (19, 1, '5.00'),
-(9, 1, '3.00'),
+(9, 1, '8.00'),
 (20, 1, '5.00'),
-(21, 1, '4.00'),
-(10, 1, '5.00'),
-(3, 1, '8.00'),
+(21, 1, '10.00'),
+(10, 1, '7.50'),
+(3, 1, '10.00'),
 (24, 1, '4.00'),
 (18, 1, '6.00'),
 (9, 2, '4.00'),
@@ -179,12 +191,13 @@ INSERT INTO `student_class` (`id_student`, `id_class`, `mark`) VALUES
 (25, 7, '3.00'),
 (24, 7, '10.00'),
 (1, 8, '8.00'),
-(2, 8, '5.00'),
+(2, 8, '6.00'),
 (3, 8, NULL),
 (4, 8, NULL),
-(6, 8, NULL),
+(6, 8, '10.00'),
 (12, 8, NULL),
-(11, 8, NULL);
+(11, 8, NULL),
+(20, 9, '10.00');
 
 --
 -- Triggers `student_class`
@@ -266,13 +279,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `class`
 --
 ALTER TABLE `class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- Constraints for dumped tables
@@ -283,6 +296,12 @@ ALTER TABLE `student`
 --
 ALTER TABLE `class`
   ADD CONSTRAINT `class_ibfk_1` FOREIGN KEY (`id_teacher`) REFERENCES `teacher` (`id`);
+
+--
+-- Constraints for table `request`
+--
+ALTER TABLE `request`
+  ADD CONSTRAINT `idc` FOREIGN KEY (`id_class`) REFERENCES `class` (`id`);
 
 --
 -- Constraints for table `student_class`

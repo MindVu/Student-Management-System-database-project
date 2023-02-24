@@ -267,9 +267,6 @@ background: radial-gradient(circle, rgba(74,139,223,1) 0%, rgba(22,41,66,1) 0%);
           <p>
             Quản lý sinh viên
           </p>
-          <p>
-            Quản lý dự án
-          </p>
         </div>
         <!-- Grid column -->
         <!-- Grid column -->
